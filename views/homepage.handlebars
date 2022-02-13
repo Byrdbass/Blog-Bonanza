@@ -1,14 +1,9 @@
-{{#each blogPosts as |blogPost| }}
+<h3 class="center-align">About this blog:</h3>
+<p class="center container blue-grey lighten-4 flow-text">Welcome to my technology blog!  This is a place where you can write about technology, and tag a topic.  You will see topics above here in the Navigation Bar.
+    Try to check to see if an existing topic is already written before you create your own!
+    Please make sure you login before trying to create a post</p>
 <div class="container">
-    <div class="row col">
-        <h2>
-            <a href="/blog_post/{{blogPost.id}}">{{blogPost.id}}</a>
-        </h2>
-        <p>
-
-            {{blogPost.topic}}
-            {{blogPost.comment}}
-        </p>
-    </div>
-</div>
+{{#each blogPosts as |blogPost| }}
+{{> blog_post}}
 {{/each}}
+</div>

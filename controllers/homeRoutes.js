@@ -25,7 +25,7 @@ router.get('/', async (req, res) =>{
     }
 });
 
-router.get('/blog_post/:id', async (req, res) => {
+router.get('/topic/:id', async (req, res) => {
     try {
         const blogData = await BlogPost.findByPk(req.params.id, {
             include: [
@@ -35,18 +35,9 @@ router.get('/blog_post/:id', async (req, res) => {
                 },
             ],
         });
-        const navBarData = await BlogPost.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ['name']
-                },
-            ]
-        })
-    const navBarBlog = navBarData.map((navBarInfo) => navBarInfo.get({ plain:true }));
     const blogPosts = blogData.get({ plain:true });
 
-    res.render('blog_post', {
+    res.render('topic', {
         blogPosts,
         navBarBlog,
         logged_in: req.session.logged_in
