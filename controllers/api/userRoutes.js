@@ -1,5 +1,21 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { BlogPost, User } = require('../../models');
+
+router.get('/', async (req,res) => {
+    try {
+        userData = await User.findAll({
+            include: [
+                {
+                    model: BlogPost,
+                    attributes: ['id', 'topic', 'comment']
+                },
+            ],
+        },
+        res.status(200).json(userData));
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
 router.post('/', async (req, res) => {
     try {
@@ -46,7 +62,7 @@ router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
             //CAN I CREATE A LOGOUT MESSAGE HERE IN JSON???
-            res.status(204).json({message: "you are now logged out"}).end();
+            res.status(204).end();
         });
     } else {
         res.status(404).end();

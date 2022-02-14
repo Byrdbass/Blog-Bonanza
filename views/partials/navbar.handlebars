@@ -7,8 +7,12 @@
             <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">Login</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/">Dashboard</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/logout">Logout</a></li>
+
+                {{!-- {{#if logged_in}} --}}
+                <li><a class="login" href="/login">Login</a></li>
+                {{!-- {{else}} --}}
+                <li><a id="logout">Logout</a></li>
+                {{!-- {{/if}} --}}
             </ul>
         </div>
         <div class="nav-content blue">
@@ -17,3 +21,4 @@
             </ul>
         </div>
     </nav>
+

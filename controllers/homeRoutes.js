@@ -39,7 +39,6 @@ router.get('/topic/:id', async (req, res) => {
 
     res.render('topic', {
         blogPosts,
-        navBarBlog,
         logged_in: req.session.logged_in
     });
     } catch (err) {
