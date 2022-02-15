@@ -46,6 +46,15 @@ router.get('/topic/:id', async (req, res) => {
     }
 });
 
+router.get('/blogForm', withAuth, async(req,res) =>{
+    console.log('this is the blogForm route')
+    if (!req.session.logged_in) {
+        res.redirect('/login');
+        return;
+    }
+    res.render('blogForm');
+})
+
 //DO WE ADD A USER PROFILE PAGE ROUTE HERE?
 //make sure to use withAuth in this function
 
@@ -56,6 +65,19 @@ router.get('/login', (req, res) => {
     }
 
     res.render('login');
+});
+
+
+router.post('/logout', (req, res) => {
+    console.log('logout route before if statement')
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            //CAN I CREATE A LOGOUT MESSAGE HERE IN JSON???
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
 });
 
 module.exports = router;
