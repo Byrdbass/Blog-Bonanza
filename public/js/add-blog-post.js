@@ -3,11 +3,11 @@ const blogFormHandler = async (event) => {
     console.log('this is the form handler function before the if statements')
     const topic = document.querySelector('#topic').value.trim();
     const title = document.querySelector('#title').value.trim();
-    const comment = document.querySelector('#comment').value.trim();
-    if (topic && title && comment) {
+    const content = document.querySelector('#content').value.trim();
+    if (topic && title && content) {
         const response = await fetch('/api/blog_post', {
             method: 'POST',
-            body: JSON.stringify({ topic, title, comment }),
+            body: JSON.stringify({ topic, title, content }),
             headers: { 'Content-Type': 'application/json' },
         });
         console.log('this is the blogForm handler')
