@@ -16,6 +16,11 @@
     <div class="card-content hoverable">
         {{comment}}
         <span class="card-title activator grey-text text-darken-4"><i class="material-icons right"></i></span>
-        <p><a href="/topic/{{blogPost.id}}">Posted By: {{user.name}}</a></p>
+        <p>{{format_date date_created}}</p>
+        <p>
+            {{!-- <a href="/topic/{{blogPost.id}}"> --}}
+        Posted By: {{user.name}}</a></p>
     </div>
 </div>
+
+{{>commentForm}}
