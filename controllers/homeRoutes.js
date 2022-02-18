@@ -76,6 +76,7 @@ router.post('/comment', async (req,res) => {
             ...req.body,
             user_id: req.session.user_id
         });
+        console.log(commentData)
         res.status(200).json({message: "comment successfully created"});
     } catch (err) {
         res.status(400).json({ message: "error posting comment"})

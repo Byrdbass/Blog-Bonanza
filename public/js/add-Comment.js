@@ -6,7 +6,7 @@ const commentFormHandler = async (event) => {
 
     // need to append an element onto dashboard page on each post
     if (response) {
-        const answer = await fetch('/comment', {
+        const answer = await fetch('/api/commentRoute', {
             method: 'POST',
             body: JSON.stringify({ response, topic_id }),
             headers: { 'Content-Type': 'application/json' },
