@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { BlogPost, User } = require('../models');
+const { Comment, BlogPost, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) =>{
@@ -33,10 +33,13 @@ router.get('/topic/:id', async (req, res) => {
                 model: User,
                 attributes: ['name']
                 },
+                {
+                    model: Comment
+                }
             ],
         });
     const blogPosts = blogData.get({ plain:true });
-
+        console.log(blogPosts)
     res.render('topic', {
         blogPosts,
         logged_in: req.session.logged_in
@@ -52,7 +55,10 @@ router.get('/blogForm', withAuth, async(req,res) =>{
         res.redirect('/login');
         return;
     }
-    res.render('blogForm');
+    
+    res.render('blogForm', {
+        logged_in: req.session.logged_in,
+    });
 })
 
 //DO WE ADD A USER PROFILE PAGE ROUTE HERE?

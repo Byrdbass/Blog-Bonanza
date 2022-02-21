@@ -13,7 +13,7 @@ const commentFormHandler = async (event) => {
         });
         console.log('this is the commentFormHandler')
         if (answer.ok) {
-            alert('thank you for your comment!')
+            document.location.reload();
         } else {
             alert(answer.statusText)
         }

@@ -10,12 +10,12 @@
             <li><a href="/blogForm"><button class="btn waves-effect waves-light right" type="submit" name="action"> create
                         Discussion</button></a></li>
             <li><a href="/dashboard">Dashboard</a></li>
-            {{!--
-            {{#if logged_in}} --}}
-            <li><a class="login" href="/login">Login</a></li>
-            {{!-- {{else}} --}}
-            <li><a class="logout">Logout</a></li>
-            {{!-- {{/if}} --}}
+            
+            {{#if logged_in}}
+                <li><a class="logout">Logout</a></li>
+            {{else}}
+                <li><a class="login" href="/login">Login</a></li>
+            {{/if}}
         </ul>
     </div>
     <div class="nav-content blue">
@@ -26,4 +26,4 @@
 </nav>
 
 
-<script src="/js/logout.js"></script>
+{{!-- <script src="/js/logout.js"></script> --}}

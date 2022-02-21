@@ -18,9 +18,10 @@ router.get('/', async (req,res) => {
 })
 
 router.post('/', async (req, res) => {
+    console.log('this is the signup route')
+    console.log(req.body);
     try {
         const userData = await User.create(req.body);
-
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
