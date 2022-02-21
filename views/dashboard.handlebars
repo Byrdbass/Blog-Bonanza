@@ -11,11 +11,14 @@
                 <h4> Your Discussions: </h4>
 
             </div>
-            <div class="col">
+            <div class="col blogList">
                 {{#each profile.blog_posts as |blog|}}
                 <p>{{ blog.topic }}</p>
                 <p>{{ blog.content }}</p>
                 <p>{{ blog.date_created }}</p>
+                <div>
+                    <button class="btn waves-effect waves-light " data-id="{{blog.id}}">DELETE</button>
+                </div>
                 {{/each}}
             </div>
         </div>
@@ -33,3 +36,5 @@
 
     </div> --}}
 </div>
+
+<script src="js/delete-blog-post.js"></script>
