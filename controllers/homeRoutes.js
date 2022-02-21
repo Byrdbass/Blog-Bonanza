@@ -73,6 +73,17 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+//NEED TO EDIT THIS
+//where do i get this route???
+router.get('/dashboard', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/editPost');
+        return;
+    }
+
+    res.render('login');
+})
+
 router.post('/comment', async (req,res) => {
     console.log ('this is the comment route')
     console.log(req.body)

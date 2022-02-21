@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 const updateBlogHandler = async (event) => {
     event.preventDefault();
     console.log('this is the update Blog handler before the if statement');

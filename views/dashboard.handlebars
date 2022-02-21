@@ -16,15 +16,20 @@
                 <p>{{ blog.topic }}</p>
                 <p>{{ blog.content }}</p>
                 <p>{{format_date blog.date_created }}</p>
-                <div>
+                <div class="row">
+                <div class="col">
+                    <button class="btn waves-effect waves-light " data-id="{{blog.id}}">EDIT</button>
+                </div>
+                <div lass="col">
                     <button class="btn waves-effect waves-light " data-id="{{blog.id}}">DELETE</button>
                 </div>
-                {{>editPost}}
+                </div>
                 {{/each}}
             </div>
         </div>
-        {{!-- <hr>
-        <div class="col"> 
+        {{!--
+        <hr>
+        <div class="col">
             <h4> Saved Discussions: </h4>
             <div>
                 {{ blog_posts }}
@@ -32,7 +37,7 @@
         </div> --}}
 
     </div>
-    {{!-- <div class= "col">
+    {{!-- <div class="col">
         {{ profile }}
 
     </div> --}}
