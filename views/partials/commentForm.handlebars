@@ -1,20 +1,23 @@
+
 <div class="divider"></div>
 <div class="row container">
-    <div class="col">
-        <h5> Make Comment: </h5>
-    </div>
-    <form class="col s4 blue-grey lighten-4" id="commentForm">
+
+    <form class="col s6 blue-grey lighten-4" id="commentForm">
+        <div class="col card blue-grey lighten-4">
+            <h5> Make Comment: </h5>
+        </div>
         <div class="row">
             <form class="col s12">
-            <div class="row">
-                <div class="input-field col s6">
-                <input placeholder="Comment" id="newComment" data-id={{blogPosts.id}} type="text" class="validate">
-                <label for="Comment">Comment</label>
+                <div class="row">
+                    <div class="input-field col s11">
+                        <input placeholder="Comment" id="newComment" data-id={{blogPosts.id}} type="text"
+                            class="validate">
+                        <label for="Comment">Comment</label>
+                    </div>
                 </div>
-            </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">
-                Submit
-            </button>
+                <button class="btn waves-effect waves-light" type="submit" name="action">
+                    Submit
+                </button>
             </form>
         </div>
 </div>

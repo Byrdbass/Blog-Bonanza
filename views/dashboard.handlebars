@@ -15,10 +15,11 @@
                 {{#each profile.blog_posts as |blog|}}
                 <p>{{ blog.topic }}</p>
                 <p>{{ blog.content }}</p>
-                <p>{{ blog.date_created }}</p>
+                <p>{{format_date blog.date_created }}</p>
                 <div>
                     <button class="btn waves-effect waves-light " data-id="{{blog.id}}">DELETE</button>
                 </div>
+                {{>editPost}}
                 {{/each}}
             </div>
         </div>

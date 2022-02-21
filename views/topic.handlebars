@@ -1,18 +1,29 @@
 <div class="container">
-    <div class="row col">
-        <h2>Topic Page
-            <a href="/blog_post/{{blogPosts.id}}">{{blogPosts.id}}</a>
+    <div class="card grey lighten-2">
+        <h2>{{blogPosts.topic}}
         </h2>
-        <p>
-            {{blogPosts.content}}{{blogPosts.topic}}{{blogPosts.date_created}}
-        </p>
+        <div class="card-content hoverable">
+            {{blogPosts.content}}
+            <span class="card-title activator grey-text text-darken-4"><i class="material-icons right"></i></span>
+            <p>{{format_date blogPosts.date_created}}</p>
+            <p>Posted By: {{blogPosts.user.name}}</p>
+        </div>
     </div>
-</div>
-<div class="card">
+    <div class="row"></div>
     {{#each blogPosts.comments as |comment|}}
-    <p>{{comment.response}}</p>
-        <p>{{comment.date_created}}</p>
-    {{/each}}
+    <div class="card blue-grey lighten-4">
+        <div class="card-content hoverable">
+            <p>{{comment.response}}</p>
+            <p>date posted: {{format_date comment.date_created}}</p>
+            <p>by: {{name}}</p>
+            <div class="divider"></div>
+            {{/each}}
+
+        </div>
+    </div>
+
+    <div class="row"></div>
+
 </div>
 
 {{>commentForm}}

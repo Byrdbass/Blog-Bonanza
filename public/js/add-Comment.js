@@ -1,7 +1,7 @@
 const commentFormHandler = async (event) => {
     event.preventDefault();
     console.log('this is the comment form handler before the if statement');
-    const topic_id = parseInt(document.querySelector('#newComment').dataset.id)
+    const topic_id = parseInt(document.querySelector('#newComment').dataset.id);
     const response = document.querySelector('#newComment').value.trim();
 
     // need to append an element onto dashboard page on each post

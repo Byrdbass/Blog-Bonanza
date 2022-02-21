@@ -15,6 +15,28 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
+router.put('./:id', withAuth, async (req, res) =>{
+    try {
+        const blogPost = await BlogPost.update(
+            {
+                topic: req.body.topic,
+                content: req.body.content,
+                //does this need to come from the built-in methods
+                date_created: req.body.date_created
+            },
+            //what id are we passing here?  the topic id?
+            {
+                where: {
+                    id: req.params.id,
+                },
+            }
+        );
+        res.status(200).json(blogPost);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const blogData = await BlogPost.destroy({
