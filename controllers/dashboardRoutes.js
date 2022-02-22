@@ -25,6 +25,17 @@ router.get('/', withAuth, async(req,res) =>{
     }
 })
 
+//NEED TO EDIT THIS NOT 
+//where do i get this route???
+router.get('/editPost', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/editPost');
+        return;
+    }
+
+    res.render('login');
+}) 
+
 // router.post('/', withAuth, async(req, res) => {
 //     try{
 //         const newBlogPost = await BlogPost.create({
