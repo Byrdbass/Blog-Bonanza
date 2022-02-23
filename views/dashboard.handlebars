@@ -17,30 +17,32 @@
                 <p>{{ blog.content }}</p>
                 <p>{{format_date blog.date_created }}</p>
                 <div class="row">
-                <div class="col">
-                    <button class="editBtn btn waves-effect waves-light " data-id="{{blog.id}}">EDIT</button>
+                    <div class="col">
+                        <a href="/dashboard/editPost/{{blog.id}}">
+                            <button class="editBtn btn waves-effect waves-light " data-id="{{blog.id}}">EDIT</button>
+                        </a>
                 </div>
                 <div lass="col">
                     <button class="deleteBtn btn waves-effect waves-light " data-id="{{blog.id}}">DELETE</button>
                 </div>
-                </div>
-                {{/each}}
             </div>
+            {{/each}}
         </div>
-        {{!--
-        <hr>
-        <div class="col">
-            <h4> Saved Discussions: </h4>
-            <div>
-                {{ blog_posts }}
-            </div>
-        </div> --}}
-
     </div>
-    {{!-- <div class="col">
-        {{ profile }}
-
+    {{!--
+    <hr>
+    <div class="col">
+        <h4> Saved Discussions: </h4>
+        <div>
+            {{ blog_posts }}
+        </div>
     </div> --}}
+
+</div>
+{{!-- <div class="col">
+    {{ profile }}
+
+</div> --}}
 </div>
 
 <script src="js/delete-blog-post.js"></script>

@@ -8,7 +8,7 @@ const commentFormHandler = async (event) => {
     if (response) {
         const answer = await fetch('/api/commentRoute', {
             method: 'POST',
-            body: JSON.stringify({ response, topic_id }),
+            body: JSON.stringify({ response, topic_id, }),
             headers: { 'Content-Type': 'application/json' },
         });
         console.log('this is the commentFormHandler')

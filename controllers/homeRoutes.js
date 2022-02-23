@@ -34,7 +34,7 @@ router.get('/topic/:id', async (req, res) => {
                 attributes: ['name']
                 },
                 {
-                    model: Comment
+                    model: Comment,
                 }
             ],
         });

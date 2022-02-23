@@ -27,14 +27,32 @@ router.get('/', withAuth, async(req,res) =>{
 
 //NEED TO EDIT THIS NOT 
 //where do i get this route???
-router.get('/editPost', (req, res) => {
-    if (req.session.logged_in) {
-        res.redirect('/editPost');
-        return;
+router.get('/editPost/:id', async (req, res) => {
+    try {
+        const editPost = await BlogPost.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attribute: ['name']
+                },
+            ],
+        });
+        const editPosts = editPost.get({ plain:true });
+        console.log(editPosts)
+        res.render('editPost', {
+            editPosts,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err)
     }
+    // if (req.session.logged_in) {
+    //     res.redirect('/editPost');
+    //     return;
+    // }
 
-    res.render('login');
-}) 
+    // res.render('login');
+}); 
 
 // router.post('/', withAuth, async(req, res) => {
 //     try{

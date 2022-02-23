@@ -15,14 +15,17 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
-router.put('/:id', withAuth, async (req, res) =>{
+router.put('/:id', async (req, res) =>{
+    console.log('hello this is the put route')
+    console.log(req.body)
+    console.log(req.params.id)
     try {
         const blogPost = await BlogPost.update(
             {
                 topic: req.body.topic,
                 content: req.body.content,
                 //does this need to come from the built-in methods
-                date_created: req.body.date_created
+                date_created: Date.now()
             },
             //what id are we passing here?  the topic id?
             {
