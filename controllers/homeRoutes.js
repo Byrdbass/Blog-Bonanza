@@ -25,19 +25,28 @@ router.get('/', async (req, res) =>{
     }
 });
 
-router.get('/topic/:id', async (req, res) => {
+router.get('/topic/:id', withAuth, async (req, res) => {
+    if (!req.session.logged_in) {
+        res.redirect('/login');
+        return;
+    }
     try {
         const blogData = await BlogPost.findByPk(req.params.id, {
             include: [
+                User,
                 {
-                model: User,
-                attributes: ['name']
+                model: Comment,
+                    include: [
+                        User
+                    ]
                 },
-                {
-                    model: Comment,
-                }
+
             ],
         });
+        // const commentData = await Comment.findAll(req.params.id,
+        //     {
+
+        //     })
     const blogPosts = blogData.get({ plain:true });
         console.log(blogPosts)
     res.render('topic', {

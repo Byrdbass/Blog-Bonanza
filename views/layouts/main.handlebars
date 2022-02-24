@@ -18,12 +18,13 @@
     {{>navbar}}
     {{{ body }}}
 
-    <script src="/js/materialize.js"></script>
+
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{else}}
     <script src="/js/login.js"></script>
     {{/if}}
+    <script src="/js/materialize.js"></script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { BlogPost, Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', async (req,res) => {
+router.post('/', withAuth, async (req,res) => {
     console.log ('this is the comment route')
     console.log(req.body)
     console.log(req.session.user_id)

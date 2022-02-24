@@ -15,7 +15,7 @@
         <div class="card-content hoverable">
             <p>{{comment.response}}</p>
             <p>date posted: {{format_date comment.date_created}}</p>
-            <p>by: {{comment.user_id}}</p>
+            <p>by: {{comment.user.name}}</p>
             <div class="divider"></div>
             {{/each}}
 
