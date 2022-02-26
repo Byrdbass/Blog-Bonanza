@@ -5,7 +5,7 @@ let sequelize;
 
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL,{
-    host: 'hw5q55w78qsiio80:r15m01xwmrz1yvif@eanl4i1omny740jw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/tvlcla5ou2ywodjr'
+    host: 'hw5q55w78qsiio80:r15m01xwmrz1yvif@eanl4i1omny740jw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/tvlcla5ou2ywodjr',
     dialect: 'mysql',
     dialectOptions: {
       decimalNumbers: true,
